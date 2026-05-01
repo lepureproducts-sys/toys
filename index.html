@@ -113,25 +113,30 @@
     align-items: flex-end;
     gap: 6px;
   }
-  .whatsapp-btn {
-    background: #25D366;
-    color: #fff;
+  .header-contact-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 5px;
+  }
+  .header-contact-info a {
+    color: var(--gold-light);
     text-decoration: none;
-    padding: 8px 16px;
-    border-radius: 24px;
-    font-weight: 700;
     font-size: 14px;
+    font-weight: 700;
     display: flex;
     align-items: center;
-    gap: 7px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.18);
-    transition: transform 0.15s, box-shadow 0.15s;
+    gap: 6px;
   }
-  .whatsapp-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 14px rgba(0,0,0,0.22); }
-  .whatsapp-btn svg { width: 18px; height: 18px; fill: #fff; }
-  .header-phone {
-    color: rgba(255,255,255,0.85);
-    font-size: 12px;
+  .header-contact-info a:hover { text-decoration: underline; }
+  .header-contact-info .phone-line {
+    color: rgba(255,255,255,0.9);
+    font-size: 15px;
+    font-weight: 700;
+  }
+  .header-contact-info .timing {
+    color: rgba(255,255,255,0.6);
+    font-size: 11px;
   }
 
   /* ── HERO BANNER ── */
@@ -243,7 +248,7 @@
   /* ── PRODUCT GRID ── */
   .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 16px;
   }
 
@@ -416,7 +421,7 @@
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 28px;
     margin-bottom: 24px;
   }
@@ -443,30 +448,7 @@
     color: rgba(255,255,255,0.35);
   }
 
-  /* ── FLOATING WHATSAPP ── */
-  .float-wa {
-    position: fixed;
-    bottom: 24px;
-    right: 24px;
-    z-index: 999;
-    background: #25D366;
-    color: #fff;
-    text-decoration: none;
-    padding: 14px 18px;
-    border-radius: 50px;
-    font-size: 14px;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    box-shadow: 0 6px 20px rgba(37,211,102,0.45);
-    animation: pulse-wa 2.5s ease-in-out infinite;
-  }
-  @keyframes pulse-wa {
-    0%, 100% { box-shadow: 0 6px 20px rgba(37,211,102,0.45); }
-    50%       { box-shadow: 0 6px 32px rgba(37,211,102,0.7); }
-  }
-  .float-wa svg { width: 20px; height: 20px; fill: #fff; }
+
 
   /* ── MODAL ── */
   .modal-overlay {
@@ -506,12 +488,12 @@
   }
   .modal-body { padding: 20px; }
   .modal-body p { font-size: 14px; color: var(--text-muted); margin-bottom: 14px; line-height: 1.6; }
-  .modal-wa-btn {
+  .modal-call-btn {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
-    background: #25D366;
+    background: var(--red);
     color: #fff;
     text-decoration: none;
     padding: 13px;
@@ -520,7 +502,7 @@
     font-weight: 700;
     margin-bottom: 10px;
   }
-  .modal-wa-btn svg { width: 20px; height: 20px; fill: #fff; }
+  .modal-call-btn:hover { background: var(--red-dark); }
   .modal-email-btn {
     display: flex;
     align-items: center;
@@ -534,13 +516,13 @@
     font-size: 14px;
     font-weight: 700;
   }
+  .modal-email-btn:hover { background: #e4e4e4; }
 
   @media (max-width: 600px) {
     .header-inner { flex-wrap: wrap; }
     .product-grid  { grid-template-columns: repeat(2, 1fr); gap: 10px; }
     .hero h1 { font-size: 26px; }
-    .float-wa span.wa-text { display: none; }
-    .float-wa { padding: 14px; border-radius: 50%; }
+
   }
 </style>
 </head>
@@ -549,13 +531,13 @@
 <!-- TICKER -->
 <div class="ticker-wrap">
   <div class="ticker">
-    <span>🚚 FREE SHIPPING on orders above ₹5000</span>
-    <span>🏆 Trusted by 1500+ buyers across US and Europe</span>
+    <span>🚚 FREE SHIPPING on orders above $60</span>
+    <span>🏆 Trusted by 5000+ Buyers across the USA</span>
     <span>📦 Bulk discounts available – Call now!</span>
     <span>⭐ 100% Safe & Certified Toys</span>
     <span>🔥 New stock arriving weekly!</span>
-    <span>🚚 FREE SHIPPING on orders above ₹5000</span>
-    <span>🏆 Trusted by 1500+ buyers across US and Europe</span>
+    <span>🚚 FREE SHIPPING on orders above $60</span>
+    <span>🏆 Trusted by 500+ Buyers across the USA</span>
     <span>📦 Bulk discounts available – Call now!</span>
     <span>⭐ 100% Safe & Certified Toys</span>
     <span>🔥 New stock arriving weekly!</span>
@@ -572,12 +554,12 @@
         <span class="tagline">Wholesale &amp; Retail · Best Factory Prices</span>
       </div>
     </a>
-    <div class="header-contact">
-      <a href="https://wa.me/8615584390886?text=Hi%2C%20I%20want%20to%20inquire%20about%20toys" class="whatsapp-btn" target="_blank">
-        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        WhatsApp Order
-      </a>
-      <span class="header-phone">📞 +86-0579-15584390886 &nbsp;|&nbsp; 10am – 8pm</span>
+    <div class="header-contact-info">
+      <!-- 👇 Replace with your actual phone number -->
+      <span class="phone-line">📞 86-0579-15584390886</span>
+      <!-- 👇 Replace with your actual email -->
+      <a href="mailto:sales@starkitsforall.store">✉️ sales@starkitsforall.store</a>
+      <span class="timing">Mon–Sat, 10am – 8pm</span>
     </div>
   </div>
 </header>
@@ -586,10 +568,10 @@
 <section class="hero">
   <div class="hero-content">
     <h1>🎁 TOYS AT FACTORY PRICES</h1>
-    <p>Huge selection · Wholesale &amp; Retail · Fast delivery </p>
+    <p>Huge selection · Wholesale &amp; Retail · Fast delivery across the USA &amp; Europe</p>
     <div class="hero-badges">
       <span class="hero-badge">✅ CE Certified</span>
-      <span class="hero-badge">📦 MOQ: 1 piece</span>
+      <span class="hero-badge">📦 Min. Order: 1 piece</span>
       <span class="hero-badge">🚀 Ships in 24 hrs</span>
       <span class="hero-badge">💰 Bulk Discounts</span>
     </div>
@@ -599,11 +581,8 @@
 <!-- CATEGORIES -->
 <div class="categories">
   <button class="cat-pill active" onclick="filterCat('all', this)">All Products</button>
+  <button class="cat-pill" onclick="filterCat('girls', this)">Kits for Girls</button>
   <button class="cat-pill" onclick="filterCat('educational', this)">Educational</button>
-  <button class="cat-pill" onclick="filterCat('outdoor', this)">Outdoor</button>
-  <button class="cat-pill" onclick="filterCat('remote', this)">Remote Control</button>
-  <button class="cat-pill" onclick="filterCat('stuffed', this)">Stuffed Toys</button>
-  <button class="cat-pill" onclick="filterCat('action', this)">Action Figures</button>
 </div>
 
 <!-- PRODUCTS -->
@@ -618,7 +597,7 @@
     <!-- ────────────────────────────────────────
          PRODUCT 1  ── REPLACE image src with your own photo filename
     ──────────────────────────────────────── -->
-    <div class="product-card" data-cat="remote">
+    <div class="product-card" data-cat="educational">
       <div class="badge-strip">
         <span class="badge badge-hot">🔥 HOT</span>
         <span class="badge badge-deal">SALE</span>
@@ -629,12 +608,12 @@
         <div class="placeholder" style="display:none">🚗</div>
       </div>
       <div class="product-info">
-        <div class="product-name">DIY Bird House</div>
+        <div class="product-name">RC Racing Car – Full Function Remote Control</div>
         <div class="product-moq">MOQ: 1 pc &nbsp;|&nbsp; Ages 6+</div>
         <div class="price-row">
-          <span class="price-main">USD 1.3</span>
+          <span class="price-main">$4</span>
           <span class="price-unit">/pc</span>
-          <span class="price-old">USD 1.5</span>
+          <span class="price-old">$7</span>
           <span class="discount-tag">-42%</span>
         </div>
         <button class="inquiry-btn" onclick="openModal('RC Racing Car', '349')">📩 Enquire Now</button>
@@ -651,12 +630,12 @@
         <div class="placeholder" style="display:none">🧱</div>
       </div>
       <div class="product-info">
-        <div class="product-name">ABERLLS DIY Journal Kit</div>
+        <div class="product-name">Jumbo Building Blocks 120 Pcs – Safe ABS Plastic</div>
         <div class="product-moq">MOQ: 1 set &nbsp;|&nbsp; Ages 3+</div>
         <div class="price-row">
-          <span class="price-main">USD 5.6</span>
+          <span class="price-main">$4</span>
           <span class="price-unit">/set</span>
-          <span class="price-old"> USD 5.8</span>
+          <span class="price-old">$5</span>
           <span class="discount-tag">-34%</span>
         </div>
         <button class="inquiry-btn" onclick="openModal('Jumbo Building Blocks 120 Pcs', '299')">📩 Enquire Now</button>
@@ -664,7 +643,7 @@
     </div>
 
     <!-- PRODUCT 3 -->
-    <div class="product-card" data-cat="stuffed">
+    <div class="product-card" data-cat="girls">
       <div class="badge-strip">
         <span class="badge badge-hot">🔥 HOT</span>
       </div>
@@ -673,12 +652,12 @@
         <div class="placeholder" style="display:none">🧸</div>
       </div>
       <div class="product-info">
-        <div class="product-name">Giant Map It</div>
+        <div class="product-name">Giant Soft Teddy Bear 60cm – Super Soft Plush</div>
         <div class="product-moq">MOQ: 1 pc &nbsp;|&nbsp; All ages</div>
         <div class="price-row">
-          <span class="price-main">USD 1.9</span>
+          <span class="price-main">$5</span>
           <span class="price-unit">/pc</span>
-          <span class="price-old">USD 2.2</span>
+          <span class="price-old">$9</span>
           <span class="discount-tag">-40%</span>
         </div>
         <button class="inquiry-btn" onclick="openModal('Giant Soft Teddy Bear 60cm', '449')">📩 Enquire Now</button>
@@ -686,7 +665,7 @@
     </div>
 
     <!-- PRODUCT 4 -->
-    <div class="product-card" data-cat="outdoor">
+    <div class="product-card" data-cat="educational">
       <div class="badge-strip">
         <span class="badge badge-new">NEW</span>
       </div>
@@ -695,12 +674,12 @@
         <div class="placeholder" style="display:none">🔫</div>
       </div>
       <div class="product-info">
-        <div class="product-name">GemArt for Girls</div>
+        <div class="product-name">High-Pressure Water Gun – 8 Metre Range</div>
         <div class="product-moq">MOQ: 2 pcs &nbsp;|&nbsp; Ages 5+</div>
         <div class="price-row">
-          <span class="price-main">USD 3.1</span>
+          <span class="price-main">$2</span>
           <span class="price-unit">/pc</span>
-          <span class="price-old">USD 3.4</span>
+          <span class="price-old">$4</span>
           <span class="discount-tag">-41%</span>
         </div>
         <button class="inquiry-btn" onclick="openModal('High-Pressure Water Gun', '189')">📩 Enquire Now</button>
@@ -708,7 +687,7 @@
     </div>
 
     <!-- PRODUCT 5 -->
-    <div class="product-card" data-cat="action">
+    <div class="product-card" data-cat="girls">
       <div class="badge-strip">
         <span class="badge badge-deal">SALE</span>
       </div>
@@ -717,12 +696,12 @@
         <div class="placeholder" style="display:none">🦸</div>
       </div>
       <div class="product-info">
-        <div class="product-name">Flower Kit-12 piece with Accessories</div>
+        <div class="product-name">Super Hero Action Figure Set – 6 pcs with Accessories</div>
         <div class="product-moq">MOQ: 1 set &nbsp;|&nbsp; Ages 4+</div>
         <div class="price-row">
-          <span class="price-main">USD 8.1</span>
+          <span class="price-main">$5</span>
           <span class="price-unit">/set</span>
-          <span class="price-old">USD 8.2</span>
+          <span class="price-old">$8</span>
           <span class="discount-tag">-39%</span>
         </div>
         <button class="inquiry-btn" onclick="openModal('Super Hero Action Figure Set', '399')">📩 Enquire Now</button>
@@ -736,12 +715,12 @@
         <div class="placeholder" style="display:none">🧩</div>
       </div>
       <div class="product-info">
-        <div class="product-name">DIY Decorate your own bottle</div>
+        <div class="product-name">Wooden Jigsaw Puzzle 100 Pcs – Animals Theme</div>
         <div class="product-moq">MOQ: 1 set &nbsp;|&nbsp; Ages 4+</div>
         <div class="price-row">
-          <span class="price-main">USD 4.1</span>
+          <span class="price-main">$3</span>
           <span class="price-unit">/set</span>
-          <span class="price-old">USD 4.4</span>
+          <span class="price-old">$5</span>
           <span class="discount-tag">-38%</span>
         </div>
         <button class="inquiry-btn" onclick="openModal('Wooden Jigsaw Puzzle 100 Pcs', '249')">📩 Enquire Now</button>
@@ -749,7 +728,7 @@
     </div>
 
     <!-- PRODUCT 7 -->
-    <div class="product-card" data-cat="remote">
+    <div class="product-card" data-cat="educational">
       <div class="badge-strip">
         <span class="badge badge-hot">🔥 HOT</span>
       </div>
@@ -758,12 +737,12 @@
         <div class="placeholder" style="display:none">🚁</div>
       </div>
       <div class="product-info">
-        <div class="product-name">Mini Paper Model Penguin, Santa</div>
+        <div class="product-name">Mini RC Helicopter – Indoor Gyro Stabilized</div>
         <div class="product-moq">MOQ: 1 pc &nbsp;|&nbsp; Ages 8+</div>
         <div class="price-row">
-          <span class="price-main">USD 2.2</span>
+          <span class="price-main">$7</span>
           <span class="price-unit">/pc</span>
-          <span class="price-old">USD 2.4</span>
+          <span class="price-old">$11</span>
           <span class="discount-tag">-39%</span>
         </div>
         <button class="inquiry-btn" onclick="openModal('Mini RC Helicopter', '549')">📩 Enquire Now</button>
@@ -771,16 +750,16 @@
     </div>
 
     <!-- PRODUCT 8 -->
-    <div class="product-card" data-cat="outdoor">
+    <div class="product-card" data-cat="educational">
       <div class="product-img-wrap">
         <img src="images/product8.jpg" alt="Badminton Set" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="placeholder" style="display:none">🏸</div>
       </div>
       <div class="product-info">
-        <div class="product-name">White Label Journal Set large kit </div>
+        <div class="product-name">Kids Badminton Set – 2 Rackets + 3 Shuttles</div>
         <div class="product-moq">MOQ: 1 set &nbsp;|&nbsp; Ages 6+</div>
         <div class="price-row">
-          <span class="price-main">USD 4.8</span>
+          <span class="price-main">$2</span>
           <span class="price-unit">/set</span>
         </div>
         <button class="inquiry-btn" onclick="openModal('Kids Badminton Set', '199')">📩 Enquire Now</button>
@@ -788,18 +767,18 @@
     </div>
 
     <!-- PRODUCT 9 -->
-    <div class="product-card" data-cat="stuffed">
+    <div class="product-card" data-cat="girls">
       <div class="product-img-wrap">
         <img src="images/product9.jpg" alt="Unicorn Plush" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="placeholder" style="display:none">🦄</div>
       </div>
       <div class="product-info">
-        <div class="product-name">Crochet Plant Kit</div>
+        <div class="product-name">Rainbow Unicorn Stuffed Toy – Light-up Horn</div>
         <div class="product-moq">MOQ: 1 pc &nbsp;|&nbsp; Ages 3+</div>
         <div class="price-row">
-          <span class="price-main">USD 8.1</span>
+          <span class="price-main">$5</span>
           <span class="price-unit">/pc</span>
-          <span class="price-old">USD 8.1</span>
+          <span class="price-old">$7</span>
           <span class="discount-tag">-37%</span>
         </div>
         <button class="inquiry-btn" onclick="openModal('Rainbow Unicorn Stuffed Toy', '379')">📩 Enquire Now</button>
@@ -816,12 +795,12 @@
         <div class="placeholder" style="display:none">🔬</div>
       </div>
       <div class="product-info">
-        <div class="product-name">Hand Moulding DIY Kit</div>
+        <div class="product-name">Junior Science Experiment Kit – 30 Experiments</div>
         <div class="product-moq">MOQ: 1 set &nbsp;|&nbsp; Ages 8+</div>
         <div class="price-row">
-          <span class="price-main">USD 7.1</span>
+          <span class="price-main">$6</span>
           <span class="price-unit">/set</span>
-          <span class="price-old">USD 7.3</span>
+          <span class="price-old">$10</span>
           <span class="discount-tag">-38%</span>
         </div>
         <button class="inquiry-btn" onclick="openModal('Junior Science Experiment Kit', '499')">📩 Enquire Now</button>
@@ -829,18 +808,18 @@
     </div>
 
     <!-- PRODUCT 11 -->
-    <div class="product-card" data-cat="action">
+    <div class="product-card" data-cat="girls">
       <div class="product-img-wrap">
         <img src="images/product11.jpg" alt="Dinosaur Figure" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="placeholder" style="display:none">🦕</div>
       </div>
       <div class="product-info">
-        <div class="product-name">Clay Jewellery Kit DIY</div>
+        <div class="product-name">Realistic Dinosaur Figure Set – 12 pcs</div>
         <div class="product-moq">MOQ: 1 set &nbsp;|&nbsp; Ages 3+</div>
         <div class="price-row">
-          <span class="price-main">USD 3.1</span>
+          <span class="price-main">$3</span>
           <span class="price-unit">/set</span>
-          <span class="price-old">USD 3.3</span>
+          <span class="price-old">$5</span>
           <span class="discount-tag">-38%</span>
         </div>
         <button class="inquiry-btn" onclick="openModal('Realistic Dinosaur Figure Set', '279')">📩 Enquire Now</button>
@@ -848,7 +827,7 @@
     </div>
 
     <!-- PRODUCT 12 -->
-    <div class="product-card" data-cat="outdoor">
+    <div class="product-card" data-cat="educational">
       <div class="badge-strip">
         <span class="badge badge-deal">SALE</span>
       </div>
@@ -860,9 +839,9 @@
         <div class="product-name">Glow-in-Dark LED Frisbee – Outdoor Fun</div>
         <div class="product-moq">MOQ: 2 pcs &nbsp;|&nbsp; Ages 6+</div>
         <div class="price-row">
-          <span class="price-main">USD 1.0</span>
+          <span class="price-main">$2</span>
           <span class="price-unit">/pc</span>
-          <span class="price-old">USD 1.0</span>
+          <span class="price-old">$3</span>
           <span class="discount-tag">-40%</span>
         </div>
         <button class="inquiry-btn" onclick="openModal('Glow-in-Dark LED Frisbee', '149')">📩 Enquire Now</button>
@@ -876,10 +855,10 @@
 <div class="trust-bar">
   <div class="trust-inner">
     <div class="trust-item"><span class="trust-icon">🏭</span> Direct Factory Prices</div>
-    <div class="trust-item"><span class="trust-icon">✅</span> CE / Certified</div>
-    <div class="trust-item"><span class="trust-icon">📦</span> Pan-US Delivery</div>
+    <div class="trust-item"><span class="trust-icon">✅</span> CE / BIS Certified</div>
+    <div class="trust-item"><span class="trust-icon">📦</span> USA &amp; Europe Delivery</div>
     <div class="trust-item"><span class="trust-icon">🔄</span> Easy Returns</div>
-    <div class="trust-item"><span class="trust-icon">💬</span> WhatsApp Support</div>
+    <div class="trust-item"><span class="trust-icon">📞</span> Call &amp; Email Support</div>
   </div>
 </div>
 
@@ -888,7 +867,7 @@
   <div class="footer-inner">
     <div class="footer-col">
       <h4>🧸 Guangzhou Star Toys</h4>
-      <p>Your trusted wholesale & retail toy supplier. Best factory prices, pan-US delivery.</p>
+      <p>Your trusted wholesale & retail toy supplier. Best factory prices, USA &amp; Europe delivery.</p>
     </div>
     <div class="footer-col">
       <h4>Quick Links</h4>
@@ -900,22 +879,18 @@
     <div class="footer-col">
       <h4>Contact Us</h4>
       <!-- 👇 Replace with your actual details -->
-      <p>📞 +86 15584390886</p>
-      <p>✉️ toys@startoysforall.online</p>
-      <p>📍 Guangzhou yinque si ting mayi you xian gongsi,No. 299 Tianhe Road,Room Y001, 201,Guangzhou City, Tianhe District, 510000, China</p>
+      <p>📞 86-0579-15584390886</p>
+      <p>✉️ sales@starkitsforall.store</p>
+      <p>📍 Guangzhou yinque si ting mayi you xian gongsi, No. 299 Tianhe Road, Room Y001, Guangzhou City, Tianhe District, 510000,China</p>
     </div>
   </div>
   <div class="footer-bottom">
-    © 2025 Guangzhou Star Toys. All rights reserved.
+    © 2025 Guangzhou
+ Star Toys. All rights reserved.
   </div>
 </footer>
 
-<!-- FLOATING WHATSAPP BUTTON -->
-<!-- 👇 Replace 8615584390886 with your WhatsApp number (country code + number, no spaces) -->
-<a href="https://wa.me/8615584390886?text=Hi%2C%20I%20want%20to%20inquire%20about%20toys" class="float-wa" target="_blank">
-  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-  <span class="wa-text">WhatsApp Us</span>
-</a>
+
 
 <!-- ENQUIRY MODAL -->
 <div class="modal-overlay" id="modal-overlay" onclick="closeModalOutside(event)">
@@ -925,12 +900,11 @@
       <button class="modal-close" onclick="closeModal()">✕</button>
     </div>
     <div class="modal-body">
-      <p id="modal-desc">Send us a WhatsApp message or email to place your order or ask about bulk pricing.</p>
-      <a id="modal-wa-link" href="#" class="modal-wa-btn" target="_blank">
-        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        Chat on WhatsApp
-      </a>
-      <a href="mailto:toys@startoysforall.online" class="modal-email-btn">✉️ Send Email Instead</a>
+      <p id="modal-desc">Call or email us to place your order or ask about bulk pricing.</p>
+      <!-- 👇 Replace with your actual phone number -->
+      <a href="tel:86-0579-15584390886" class="modal-call-btn">📞 Call Us: 86-0579-15584390886</a>
+      <!-- 👇 Replace with your actual email -->
+      <a id="modal-email-link" href="mailto:sales@starkitsforall.store" class="modal-email-btn">✉️ Email Your Enquiry</a>
     </div>
   </div>
 </div>
@@ -949,10 +923,11 @@
   function openModal(name, price) {
     document.getElementById('modal-title').textContent = name;
     document.getElementById('modal-desc').textContent =
-      'Enquiring about: ' + name + ' @ ₹' + price + '/pc. Tap below to chat instantly!';
-    const msg = encodeURIComponent('Hi! I want to order: ' + name + ' (Price: ₹' + price + '). Please share availability and bulk pricing.');
-    // 👇 Replace 8615584390886 with your WhatsApp number
-    document.getElementById('modal-wa-link').href = 'https://wa.me/8615584390886?text=' + msg;
+      'Enquiring about: ' + name + ' @ $' + price + '. Call or email us to place your order!';
+    // 👇 Replace toys@yourdomain.com with your actual email
+    const subject = encodeURIComponent('Enquiry: ' + name);
+    const body = encodeURIComponent('Hi,\n\nI want to order: ' + name + '\nPrice shown: $' + price + '\n\nPlease share availability and bulk pricing.\n\nThank you!');
+    document.getElementById('modal-email-link').href = 'mailto:toys@yourdomain.com?subject=' + subject + '&body=' + body;
     document.getElementById('modal-overlay').classList.add('open');
   }
   function closeModal() {
